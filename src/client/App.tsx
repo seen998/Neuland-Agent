@@ -4,6 +4,7 @@ import { sessionApi, chatApi } from './utils/api';
 import { OnboardingModal } from './components/onboarding/OnboardingModal';
 import { Sidebar } from './components/sidebar/Sidebar';
 import { ChatContainer } from './components/chat/ChatContainer';
+import { Menu, X } from 'lucide-react';
 import './index.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   // Check for existing session on mount
   useEffect(() => {
@@ -77,6 +79,11 @@ function App() {
     setShowOnboarding(false);
   };
 
+  // Close mobile sidebar when navigating
+  const handleCloseMobileSidebar = () => {
+    setIsMobileSidebarOpen(false);
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-50">
@@ -89,14 +96,35 @@ function App() {
   }
 
   return (
-    <div className="h-screen flex overflow-hidden bg-gray-50">
+    <div className="h-screen flex overflow-hidden bg-gray-50 mobile-vh">
       {/* Onboarding Modal */}
       {showOnboarding && (
         <OnboardingModal onComplete={handleOnboardingComplete} />
       )}
 
+      {/* Mobile Menu Button */}
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+        aria-label="Toggle menu"
+      >
+        {isMobileSidebarOpen ? (
+          <X className="w-6 h-6 text-gray-700" />
+        ) : (
+          <Menu className="w-6 h-6 text-gray-700" />
+        )}
+      </button>
+
+      {/* Mobile Sidebar Overlay */}
+      <div
+        className={`sidebar-overlay ${isMobileSidebarOpen ? 'active' : ''}`}
+        onClick={handleCloseMobileSidebar}
+      />
+
       {/* Sidebar */}
-      <Sidebar />
+      <div className={`sidebar-mobile ${isMobileSidebarOpen ? 'open' : ''} md:relative md:transform-none md:block`}>
+        <Sidebar onNavigate={handleCloseMobileSidebar} />
+      </div>
 
       {/* Main Chat Area */}
       <main className="flex-1 overflow-hidden">
@@ -107,3 +135,4 @@ function App() {
 }
 
 export default App;
+

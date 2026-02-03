@@ -12,7 +12,11 @@ import {
   Globe
 } from 'lucide-react';
 
-export function Sidebar() {
+interface SidebarProps {
+  onNavigate?: () => void;
+}
+
+export function Sidebar({ onNavigate }: SidebarProps) {
   const {
     userName,
     language,
@@ -48,6 +52,7 @@ export function Sidebar() {
       setIsPasswordModalOpen(true);
     } else {
       setCurrentTab(tabId);
+      onNavigate?.();
     }
   };
 
