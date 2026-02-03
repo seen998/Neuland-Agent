@@ -1,23 +1,41 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "ES2020"
+    ],
+    "module": "Node16",
+    "moduleResolution": "Node16",
     "outDir": "./dist/server",
     "rootDir": "./src",
     "noEmit": false,
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "target": "ES2020",
+    "allowImportingTsExtensions": false,
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "allowImportingTsExtensions": false,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@client/*": [
+        "src/client/*"
+      ],
+      "@server/*": [
+        "src/server/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ]
+    }
   },
   "include": [
     "src/server/**/*",
