@@ -45,7 +45,7 @@ app.get('/api/health', (req, res) => {
 if (CONFIG.NODE_ENV === 'production') {
   const clientDistPath = path.join(__dirname, '../../dist/client');
   app.use(express.static(clientDistPath));
-  
+
   // Serve index.html for all non-API routes (SPA support)
   app.get('*', (req, res) => {
     if (!req.path.startsWith('/api')) {
@@ -59,8 +59,8 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
   console.error('Unhandled error:', err);
   res.status(500).json({
     success: false,
-    error: CONFIG.NODE_ENV === 'production' 
-      ? 'Internal server error' 
+    error: CONFIG.NODE_ENV === 'production'
+      ? 'Internal server error'
       : err.message
   });
 });
@@ -69,7 +69,7 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 async function startServer() {
   // Validate configuration
   validateConfig();
-  
+
   // Test OpenRouter connection
   const openRouterConnected = await OpenRouterService.testConnection();
   if (openRouterConnected) {
@@ -80,8 +80,8 @@ async function startServer() {
       console.warn('  No OPENROUTER_API_KEY configured');
     }
   }
-  
-  app.listen(CONFIG.PORT, () => {
+
+  app.listen(Number(CONFIG.PORT), '0.0.0.0', () => {
     console.log(`
 ╔══════════════════════════════════════════════════════════════╗
 ║           AI Coaching Agent Server Started                   ║
