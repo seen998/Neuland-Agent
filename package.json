@@ -10,7 +10,7 @@
     "build": "tsc && vite build",
     "server:build": "tsc -p tsconfig.server.json",
     "preview": "vite preview",
-    "start": "node dist/server/index.js",
+    "start": "node dist/server/server/index.js",
     "server": "tsx src/server/index.ts"
   },
   "dependencies": {
