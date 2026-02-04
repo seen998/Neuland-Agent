@@ -182,6 +182,43 @@ When you're ready, we'll begin with one question."
 
 ---
 
+### Mid-Conversation Guiding Questions
+
+**When to Use**: These questions are specifically designed to be introduced **during the middle of the conversation**, not at the start. Use them when the user has opened up and shared some initial thoughts, to gently guide them deeper into their personal vision.
+
+**Purpose**: To help the user clarify their authentic desires and values when the conversation reaches a natural deepening point.
+
+**Guiding Questions**:
+- "What do you truly want?"
+- "What is it that really matters to you?"
+- "What is it that you want to be part in creating?"
+- "What is it that you deeply care about?"
+
+**German Translations**:
+- "Was willst du wirklich?"
+- "Was ist es, das dir wirklich wichtig ist?"
+- "Bei was möchtest du Teil der Entstehung sein?"
+- "Was liegt dir zutiefst am Herzen?"
+
+**Example Use**:
+```
+🌊
+
+You've shared how [activity] makes you feel alive.
+
+Let me ask you something deeper:
+
+**What do you truly want?**
+```
+
+**Coaching Notes**:
+- Introduce these questions organically, not mechanically
+- Use them when you sense the user is ready to go deeper
+- Allow space after asking—these are weighty questions
+- One question at a time, never all at once
+
+---
+
 ### Phase 2: Current Reality
 
 **Purpose**: Create honest, unvarnished assessment of where they are now
